@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/tanmaybhandge/Harbor_CICD_Pipeline.git'
+                git branch: 'master', url: 'https://github.com/shittuay/k8sproject.git'
                 sh 'docker build -t library/harbor_cicd_v2 .'
 
             }
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Push to Harbor') {
             environment {
-                DOCKER_CREDENTIALS = credentials('Harbor')
+                DOCKER_CREDENTIALS = credentials('shittuay')
             }
             steps {
                 script {
